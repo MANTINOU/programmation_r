@@ -14,21 +14,43 @@ salaire_net()
 #fonction bruttonet1
 #on obtient du net  grace au brut
 
-brut_tonet <- function(){
-  salaire_brute <- as.numeric(readline(prompt= "entrez le salaire_brut : "))
-  salaire <- salaire_brute* 0.78
-  if  (is.numeric(salaire_brute) )
+brut_tonet <- function(salaire){
+
+  if(is.numeric(salaire) == FALSE)
   {
     
-     
-     return(salaire)
-  }  else
-  { 
      print("error")
+  }  else
+  {  
+     salaire_net <- salaire*0.78 
+     return(salaire_net)
   } 
-  
+     return(salaire_net)
 }
-brut_tonet()
+brut_tonet(salaire = 2000)
+
+
+#brut_tonet2
+
+brut_tonet2 <- function(salaire, statut){
+  salaire_net <- salaire*0.925
+  if (statut =="cadre")
+  {
+    salaire_net <- salaire*0.75
+    return(salaire_net)
+    
+  } else if (statut == "non cadre")
+  { salaire_brut <- salaire*0.78
+    return(salaire_net)
+    
+  } else
+  {
+    print("error")
+  }
+    return(salaire_net)
+}
+brut_tonet2(2000, "cadre")
+
 
 
 
